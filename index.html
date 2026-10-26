@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Neurological Oracle Café | Natura Bissé x Selfridges</title>
+    <!-- Google Fonts for Editorial Luxury Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #FBF9F5; /* Natura Bissé signature soft cream/ivory */
+            --text-dark: #1A1A1A;
+            --accent-bronze: #8C7853;
+            --gold-muted: #C5A059;
+            --white: #FFFFFF;
+            --gray-light: #F2EFE9;
+            --card-border: #E8E2D5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.7;
+            letter-spacing: 0.03em;
+        }
+
+        /* Navigation Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 48px;
+            background-color: var(--white);
+            border-bottom: 1px solid var(--gray-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-dark);
+        }
+
+        .nav-cta {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 12px 28px;
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: background 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--accent-bronze);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 80px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-subtitle {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--accent-bronze);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent-bronze);
+        }
+
+        .hero p {
+            font-size: 16px;
+            font-weight: 300;
+            color: #555;
+            max-width: 700px;
+            margin-bottom: 40px;
+        }
+
+        /* Atmospheric Banner */
+        .banner-image {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .banner-image h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
+        /* Interactive Explorer Section */
+        .explorer-container {
+            max-width: 1100px;
+            margin: 100px auto;
+            padding: 0 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header span {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent-bronze);
+            font-weight: 600;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        /* Tab Navigation Buttons */
+        .tab-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            background-color: var(--white);
+            border: 1px solid var(--card-border);
+            padding: 20px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .tab-btn span {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            color: var(--accent-bronze);
+            font-weight: 600;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .tab-btn h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            border-color: var(--accent-bronze);
+            background-color: var(--white);
+            box-shadow: 0 6px 20px rgba(140, 120, 83, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            border-left: 3px solid var(--accent-bronze);
+        }
+
+        /* Tab Content Display Panels (Split with Image) */
+        .tab-content {
+            display: none;
+            background: var(--white);
+            border: 1px solid var(--card-border);
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .phase-details h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .phase-details p {
+            font-size: 15px;
+            color: #555;
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        .phase-image img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+        }
+
+        .science-highlight {
+            background-color: var(--bg-color);
+            border-left: 3px solid var(--accent-bronze);
+            padding: 18px 22px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #333;
+            grid-column: span 2;
+        }
+
+        .science-highlight strong {
+            color: var(--text-dark);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Booking / Details Section */
+        .booking-section {
+            background-color: var(--gray-light);
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .booking-box {
+            max-width: 750px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 60px 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--accent-bronze);
+        }
+
+        .booking-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        .booking-box p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .event-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-bronze);
+            font-weight: 600;
+            flex-wrap: wrap;
+        }
+
+        .btn-large {
+            display: inline-block;
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 16px 44px;
+            text-decoration: none;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: background 0.3s ease;
+        }
+
+        .btn-large:hover {
+            background-color: var(--accent-bronze);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: var(--white);
+            border-top: 1px solid var(--gray-light);
+            font-size: 12px;
+            color: #888;
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .tab-content.active {
+                grid-template-columns: 1fr;
+            }
+            header {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Natura Bissé</div>
+        <a href="#booking" class="nav-cta">Reserve Session</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <span class="hero-subtitle">Selfridges Corner Shop Exclusive</span>
+        <h1>The Neurological <em>Oracle Café</em></h1>
+        <p>A multi-sensory retail experience fusing advanced cellular skin science, psychological self-assessment, and clinical formulation in the heart of London.</p>
+        <a href="#booking" class="btn-large">Book Your Experience (£30)</a>
+    </section>
+
+    <!-- Atmospheric Banner -->
+    <div class="banner-image">
+        <h2>Uncompromising Scientific Rigor Meets Mindful Ritual</h2>
+    </div>
+
+    <!-- Interactive Journey Explorer Section -->
+    <div class="explorer-container" id="explorer">
+        <div class="section-header">
+            <span>Interactive Session Explorer</span>
+            <h2>Click into Each Process</h2>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="openPhase(event, 'phase1')">
+                <span>Phase 01 (20 Mins)</span>
+                <h4>Brand Masterclass</h4>
+            </button>
+            <button class="tab-btn" onclick="openPhase(event, 'phase2')">
+                <span>Phase 02 (15 Mins)</span>
+                <h4>Neuro-Skin Scan</h4>
+            </button>
+            <button class="tab-btn" onclick="openPhase(event, 'phase3')">
+                <span>Phase 03 (25 Mins)</span>
+                <h4>Baraja Consultation</h4>
+            </button>
+            <button class="tab-btn" onclick="openPhase(event, 'phase4')">
+                <span>Phase 04 (30 Mins)</span>
+                <h4>Taste of Beauty</h4>
+            </button>
+        </div>
+
+        <!-- Tab Content 1 -->
+        <div id="phase1" class="tab-content active">
+            <div class="phase-details">
+                <div class="phase-number">Phase 01 • First Session Step</div>
+                <h3>The Brand & Ingredient Masterclass</h3>
+                <p>Before any personal testing begins, guests are grounded in Natura Bissé’s elite professional spa lineage and high-performance heritage. Led by senior skin experts, this masterclass breaks down our medical-grade active formulations, high concentrations of bio-compatible ingredients, and patented delivery systems.</p>
+                <p>By establishing academic credibility right at the start, guests understand that every recommendation follows rigorous clinical standards.</p>
+            </div>
+            <div class="phase-image">
+                <img src="https://images.unsplash.com/photo-1556760544-74068565f05c?auto=format&fit=crop&w=800&q=80" alt="Natura Bisse Masterclass">
+            </div>
+            <div class="science-highlight">
+                <strong>The Scientific Rationale:</strong>
+                Upholding Natura Bissé’s reputation as a pioneer in advanced anti-aging and professional esthetics, proving that our formulations deliver tangible cellular-level rejuvenation.
+            </div>
+        </div>
+
+        <!-- Tab Content 2 -->
+        <div id="phase2" class="tab-content">
+            <div class="phase-details">
+                <div class="phase-number">Phase 02 • Second Session Step</div>
+                <h3>Neuro-Skin Diagnostic & Biomarker Scan</h3>
+                <p>Equipped with an understanding of our clinical technology, guests undergo a state-of-the-art diagnostic screening. This combines high-resolution optical skin scanning (assessing barrier integrity, micro-wrinkles, and hydration metrics) with a sensory/stress indicator questionnaire.</p>
+                <p>Because cortisol and psychological stress directly compromise skin-barrier repair, this scan measures the intersection between lifestyle fatigue and external dermal stress.</p>
+            </div>
+            <div class="phase-image">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Skin Diagnostic Scan">
+            </div>
+            <div class="science-highlight">
+                <strong>The Scientific Rationale:</strong>
+                Quantifying the skin-brain axis. We isolate how neurological stress impacts trans-epidermal water loss, providing an objective baseline for tailored treatment.
+            </div>
+        </div>
+
+        <!-- Tab Content 3 -->
+        <div id="phase3" class="tab-content">
+            <div class="phase-details">
+                <div class="phase-number">Phase 03 • Third Session Step</div>
+                <h3>The "Neurological Oracle" Baraja Consultation</h3>
+                <p>Moving from biometric data to behavioral psychology, guests interact with our custom-designed <strong>Baraja card deck</strong>. While modern and gamified, this consultation is firmly rooted in cognitive-behavioral self-reflection and neuro-aesthetics.</p>
+                <p>Guests intuitively select cards that visually and symbolically resonate with their current emotional and sensory state. Each card maps directly to a specific physiological skin condition (such as chronic dehydration or oxidative fatigue).</p>
+            </div>
+            <div class="phase-image">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Baraja Card Consultation">
+            </div>
+            <div class="science-highlight">
+                <strong>How Baraja Fuses with Science:</strong>
+                Psychological studies show that intuitive visual selection bypasses cognitive fatigue, allowing individuals to accurately pinpoint their stress triggers. The card acts as a somatic translator—aligning your mental state with your biological prescription.
+            </div>
+        </div>
+
+        <!-- Tab Content 4 -->
+        <div id="phase4" class="tab-content">
+            <div class="phase-details">
+                <div class="phase-number">Phase 04 • Final Session Step</div>
+                <h3>The British "Taste of Beauty" Wellness Curation</h3>
+                <p>The journey concludes at our bespoke café space, where guests enjoy an exclusive British-styled botanical high-tea menu. Infused with antioxidants, adaptogens, and skin-loving nutrients, every element of the menu mirrors the active botanical compounds found in their prescribed skincare routine.</p>
+                <p>Guests leave with a customized sample regimen, digital diagnostic profile, and a clear clinical roadmap tailored for home care.</p>
+            </div>
+            <div class="phase-image">
+                <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80" alt="Taste of Beauty Café">
+            </div>
+            <div class="science-highlight">
+                <strong>The Scientific Rationale:</strong>
+                Nutricosmetics and internal-external synergy. Demonstrating how antioxidant-rich dietary intake amplifies topical skincare absorption and overall cellular defense.
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking / Details Section -->
+    <section class="booking-section" id="booking">
+        <div class="booking-box">
+            <h2>Secure Your Place at Selfridges Oxford Street</h2>
+            <p>Sessions are strictly reservation-only to ensure an intimate, personalized diagnostic experience. Tickets are £30, which is <strong>fully redeemable</strong> against any Natura Bissé product purchase made at the event.</p>
+            
+            <div class="event-meta">
+                <span>Location: The Corner Shop, Selfridges</span>
+                <span>Duration: 90 Minutes</span>
+                <span>Format: Private Reservation</span>
+            </div>
+
+            <a href="#" class="btn-large" onclick="alert('Redirecting to Selfridges secure reservation portal...'); return false;">Book Your Time Slot</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2027 NATURA BISBÉ Barcelona. All Rights Reserved. In Partnership with Selfridges London.</p>
+    </footer>
+
+    <!-- JavaScript for Tab Switching -->
+    <script>
+        function openPhase(evt, phaseId) {
+            let tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            let tabBtns = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabBtns.length; i++) {
+                tabBtns[i].classList.remove("active");
+            }
+
+            document.getElementById(phaseId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+
+</body>
+</html>
